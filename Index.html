@@ -2,63 +2,81 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <!-- TAG MAIS IMPORTANTE PARA OTIMIZAÇÃO MOBILE -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acesso ao Conteúdo</title>
+    
+    <!-- Estilos para deixar o site bonito e responsivo -->
     <style>
-        /* CSS para estilização e otimização mobile */
         body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #121212; /* Fundo escuro */
-            color: #ffffff; /* Texto branco */
+            background-color: #f0f2f5; /* Fundo cinza claro, mais suave que o branco */
+            color: #1c1e21; /* Cor de texto principal (padrão Facebook) */
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            padding: 15px;
+            box-sizing: border-box;
         }
         .container {
             text-align: center;
-            padding: 20px;
-            max-width: 500px; /* Largura máxima para não ficar estranho no Desktop */
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 450px;
             width: 100%;
             box-sizing: border-box;
         }
         h1 {
-            font-size: 24px;
-            margin-bottom: 25px;
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #333;
         }
         .main-image {
-            width: 100%; /* Imagem sempre ocupa 100% da largura do container */
-            max-width: 400px; /* Limite de tamanho da imagem */
-            height: auto; /* Altura se ajusta automaticamente */
-            border-radius: 15px; /* Bordas arredondadas */
-            margin-bottom: 30px;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
         }
         .button {
             display: block;
             width: 100%;
-            padding: 15px;
+            padding: 16px;
             margin-bottom: 15px;
-            background-color: #007bff; /* Azul similar ao da sua imagem */
             color: #ffffff;
             text-decoration: none;
             font-size: 16px;
             font-weight: bold;
+            border: none;
             border-radius: 8px;
             box-sizing: border-box;
-            transition: background-color 0.3s ease;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
         .button:hover {
-            background-color: #0056b3; /* Azul um pouco mais escuro ao passar o mouse */
+            transform: translateY(-2px); /* Efeito de elevação */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        .button-drive {
+            background: linear-gradient(45deg, #0d6efd, #0d8bfd); /* Gradiente azul */
         }
         .button-telegram {
-            background-color: #28a8ea; /* Cor do Telegram */
+            background: linear-gradient(45deg, #28a8ea, #28c3ea); /* Gradiente azul claro (Telegram) */
         }
-        .button-telegram:hover {
-            background-color: #228fca;
+        .footer-text {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #888;
         }
     </style>
 
+    <!-- =================================================================== -->
+    <!-- PIXEL DA META - MENSURAÇÃO INTELIGENTE COM COOKIE -->
+    <!-- =================================================================== -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -82,34 +100,31 @@
     <div class="container">
         <h1>Seu Acesso Foi Liberado!</h1>
 
-        <img src="https://i.imgur.com/URL_DA_SUA_IMAGEM.jpg" alt="Conteúdo Principal" class="main-image">
+        <!-- ### ATENÇÃO 1: COLOQUE O LINK DA SUA IMAGEM AQUI ### -->
+        <!-- Para conseguir um link, você pode subir a imagem para um site como o https://imgur.com/upload -->
+        <img src="https://i.imgur.com/gB8hY2G.jpeg" alt="Conteúdo Principal" class="main-image">
 
-        <a href="https://SEU_LINK_DO_DRIVE_AQUI" class="button" target="_blank">Acessar Drive</a>
+        <!-- ### ATENÇÃO 2: COLOQUE SEU LINK DO DRIVE AQUI ### -->
+        <a href="https://SEU_LINK_DO_DRIVE_AQUI" class="button button-drive" target="_blank" rel="noopener noreferrer">Acessar Conteúdo Principal</a>
 
-        <a href="https://SEU_LINK_DO_TELEGRAM_AQUI" class="button button-telegram" target="_blank">Entrar no Telegram</a>
-
+        <!-- ### ATENÇÃO 3: COLOQUE SEU LINK DO TELEGRAM AQUI ### -->
+        <a href="https://SEU_LINK_DO_TELEGRAM_AQUI" class="button button-telegram" target="_blank" rel="noopener noreferrer">Entrar no Grupo VIP</a>
+        
+        <p class="footer-text">Qualquer dúvida, entre em contato.</p>
     </div>
 
+    <!-- SCRIPT DE MENSURAÇÃO DA COMPRA (EXECUTADO APENAS UMA VEZ) -->
     <script>
-        // Função para verificar se um cookie existe
         function getCookie(name) {
             const value = `; ${document.cookie}`;
             const parts = value.split(`; ${name}=`);
             if (parts.length === 2) return parts.pop().split(';').shift();
         }
 
-        // Verifica se o cookie 'compra_registrada' NÃO existe
         if (!getCookie('compra_registrada')) {
-            
-            // Dispara o evento de Purchase com o valor de R$30,00
             fbq('track', 'Purchase', {value: 30.00, currency: 'BRL'});
-            
-            // Cria o cookie para evitar disparos duplicados
-            // Este cookie é válido por 1 ano
             document.cookie = "compra_registrada=true; max-age=31536000; path=/";
-
             console.log("Evento de Purchase disparado e cookie criado.");
-
         } else {
             console.log("Cookie encontrado. Evento de Purchase NÃO foi disparado novamente.");
         }
