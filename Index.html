@@ -1,7 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <title>Processando seu Acesso...</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso ao Conteúdo</title>
+    <style>
+        /* CSS para estilização e otimização mobile */
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #121212; /* Fundo escuro */
+            color: #ffffff; /* Texto branco */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 500px; /* Largura máxima para não ficar estranho no Desktop */
+            width: 100%;
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 25px;
+        }
+        .main-image {
+            width: 100%; /* Imagem sempre ocupa 100% da largura do container */
+            max-width: 400px; /* Limite de tamanho da imagem */
+            height: auto; /* Altura se ajusta automaticamente */
+            border-radius: 15px; /* Bordas arredondadas */
+            margin-bottom: 30px;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #007bff; /* Azul similar ao da sua imagem */
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #0056b3; /* Azul um pouco mais escuro ao passar o mouse */
+        }
+        .button-telegram {
+            background-color: #28a8ea; /* Cor do Telegram */
+        }
+        .button-telegram:hover {
+            background-color: #228fca;
+        }
+    </style>
 
     <script>
     !function(f,b,e,v,n,t,s)
@@ -12,25 +68,52 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    
-    fbq('init', '311883301493766'); 
+
+    fbq('init', '311883301493766');
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=311883301493766&ev=PageView&noscript=1"
     /></noscript>
-    </head>
+    
+</head>
 <body>
-    <p>Aguarde, estamos te redirecionando para o seu conteúdo...</p>
+
+    <div class="container">
+        <h1>Seu Acesso Foi Liberado!</h1>
+
+        <img src="https://i.imgur.com/URL_DA_SUA_IMAGEM.jpg" alt="Conteúdo Principal" class="main-image">
+
+        <a href="https://SEU_LINK_DO_DRIVE_AQUI" class="button" target="_blank">Acessar Drive</a>
+
+        <a href="https://SEU_LINK_DO_TELEGRAM_AQUI" class="button button-telegram" target="_blank">Entrar no Telegram</a>
+
+    </div>
 
     <script>
-        fbq('track', 'Purchase', {value: 30.00, currency: 'BRL'});
+        // Função para verificar se um cookie existe
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        // Verifica se o cookie 'compra_registrada' NÃO existe
+        if (!getCookie('compra_registrada')) {
+            
+            // Dispara o evento de Purchase com o valor de R$30,00
+            fbq('track', 'Purchase', {value: 30.00, currency: 'BRL'});
+            
+            // Cria o cookie para evitar disparos duplicados
+            // Este cookie é válido por 1 ano
+            document.cookie = "compra_registrada=true; max-age=31536000; path=/";
+
+            console.log("Evento de Purchase disparado e cookie criado.");
+
+        } else {
+            console.log("Cookie encontrado. Evento de Purchase NÃO foi disparado novamente.");
+        }
     </script>
 
-    <script>
-        setTimeout(function() {
-            window.location.href = "https://sites.google.com/view/mariaconteudos/in%C3%ADcio";
-        }, 500); // Espera 500 milissegundos para dar tempo do pixel disparar
-    </script>
 </body>
 </html>
