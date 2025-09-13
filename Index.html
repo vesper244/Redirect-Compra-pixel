@@ -2,75 +2,78 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <!-- TAG MAIS IMPORTANTE PARA OTIMIZAÇÃO MOBILE -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acesso ao Conteúdo</title>
+    <title>Meus Links</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     
-    <!-- Estilos para deixar o site bonito e responsivo -->
     <style>
+        :root {
+            --background: #121212;
+            --text-color: #FFFFFF;
+            --button-bg: #FFFFFF;
+            --button-text-color: #121212;
+            --button-hover-bg: #f0f0f0;
+        }
+
         body {
+            background-color: var(--background);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
             margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f0f2f5; /* Fundo cinza claro, mais suave que o branco */
-            color: #1c1e21; /* Cor de texto principal (padrão Facebook) */
+            padding: 20px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             min-height: 100vh;
-            padding: 15px;
             box-sizing: border-box;
         }
-        .container {
+
+        .profile-container {
             text-align: center;
-            background-color: #ffffff;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            max-width: 450px;
+            max-width: 380px;
             width: 100%;
-            box-sizing: border-box;
         }
-        h1 {
-            font-size: 22px;
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%; /* Essencial para a imagem redonda */
+            border: 3px solid var(--button-bg);
+            object-fit: cover; /* Garante que a imagem preencha o círculo sem distorcer */
             margin-bottom: 20px;
-            color: #333;
         }
-        .main-image {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 25px;
-            border: 1px solid #ddd;
-        }
-        .button {
-            display: block;
-            width: 100%;
-            padding: 16px;
-            margin-bottom: 15px;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 16px;
+
+        .profile-name {
+            font-size: 20px;
             font-weight: bold;
-            border: none;
+            margin-bottom: 25px;
+        }
+
+        .link-button {
+            display: block;
+            background-color: var(--button-bg);
+            color: var(--button-text-color);
+            padding: 18px 20px;
+            margin-bottom: 16px;
             border-radius: 8px;
-            box-sizing: border-box;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
         }
-        .button:hover {
-            transform: translateY(-2px); /* Efeito de elevação */
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+
+        .link-button:hover {
+            background-color: var(--button-hover-bg);
+            transform: scale(1.03); /* Efeito de crescimento suave */
         }
-        .button-drive {
-            background: linear-gradient(45deg, #0d6efd, #0d8bfd); /* Gradiente azul */
-        }
-        .button-telegram {
-            background: linear-gradient(45deg, #28a8ea, #28c3ea); /* Gradiente azul claro (Telegram) */
-        }
-        .footer-text {
-            margin-top: 20px;
+
+        .footer {
+            margin-top: 30px;
             font-size: 12px;
-            color: #888;
+            color: #a0a0a0;
         }
     </style>
 
@@ -93,25 +96,29 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=311883301493766&ev=PageView&noscript=1"
     /></noscript>
-    
 </head>
 <body>
 
-    <div class="container">
-        <h1>Seu Acesso Foi Liberado!</h1>
-
-        <!-- ### ATENÇÃO 1: COLOQUE O LINK DA SUA IMAGEM AQUI ### -->
-        <!-- Para conseguir um link, você pode subir a imagem para um site como o https://imgur.com/upload -->
-        <img src="https://i.imgur.com/gB8hY2G.jpeg" alt="Conteúdo Principal" class="main-image">
+    <div class="profile-container">
+        
+        <!-- ### ATENÇÃO 1: COLOQUE O LINK DA SUA IMAGEM DE PERFIL AQUI ### -->
+        <!-- Use uma imagem quadrada para um círculo perfeito. Ex: 500x500 pixels. -->
+        <!-- Sugestão: https://imgur.com/upload -->
+        <img src="https://placehold.co/500x500/FFFFFF/121212?text=Perfil" alt="Foto de Perfil" class="profile-image">
+        
+        <h1 class="profile-name">@seu_usuario</h1>
 
         <!-- ### ATENÇÃO 2: COLOQUE SEU LINK DO DRIVE AQUI ### -->
-        <a href="https://SEU_LINK_DO_DRIVE_AQUI" class="button button-drive" target="_blank" rel="noopener noreferrer">Acessar Conteúdo Principal</a>
-
-        <!-- ### ATENÇÃO 3: COLOQUE SEU LINK DO TELEGRAM AQUI ### -->
-        <a href="https://SEU_LINK_DO_TELEGRAM_AQUI" class="button button-telegram" target="_blank" rel="noopener noreferrer">Entrar no Grupo VIP</a>
+        <a href="https://SEU_LINK_DO_DRIVE_AQUI" class="link-button" target="_blank" rel="noopener noreferrer">Acessar Drive</a>
         
-        <p class="footer-text">Qualquer dúvida, entre em contato.</p>
+        <!-- ### ATENÇÃO 3: COLOQUE SEU LINK DO TELEGRAM AQUI ### -->
+        <a href="https://SEU_LINK_DO_TELEGRAM_AQUI" class="link-button" target="_blank" rel="noopener noreferrer">Entrar no Telegram</a>
+
     </div>
+    
+    <footer class="footer">
+        Acesso exclusivo para membros.
+    </footer>
 
     <!-- SCRIPT DE MENSURAÇÃO DA COMPRA (EXECUTADO APENAS UMA VEZ) -->
     <script>
@@ -122,7 +129,7 @@
         }
 
         if (!getCookie('compra_registrada')) {
-            fbq('track', 'Purchase', {value: 30.00, currency: 'BRL'});
+            fbq('track', 'Purchase', { value: 30.00, currency: 'BRL' });
             document.cookie = "compra_registrada=true; max-age=31536000; path=/";
             console.log("Evento de Purchase disparado e cookie criado.");
         } else {
@@ -132,3 +139,4 @@
 
 </body>
 </html>
+
